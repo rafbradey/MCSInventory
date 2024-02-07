@@ -7,7 +7,7 @@ use App\Http\Controllers\SearchController;
 use App\Models\User;
 use App\Models\UserRequests;
 use App\Models\Inventory;
-
+Use App\Models\Report;
 //use App\Http\Controllers\AuthManager;  // This is the namespace of the controller.
 
 /*
