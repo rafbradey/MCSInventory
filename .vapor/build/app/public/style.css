@@ -1,0 +1,321 @@
+
+* {
+  font-family: sans-serif;
+}
+
+
+body{
+    background: white;
+}
+
+#side_nav{
+    background: rgb(0, 0, 0);
+    min-width: 250px;
+    max-width: 250px;
+}
+
+.content {
+  min-height: 100vh;
+  width: calc(100% - 250px); /* Adjust width to accommodate the sidebar */
+}
+
+@media (max-width: 767px) {
+  .content {
+    width: 100%; /* Reset width to full when sidebar is hidden */
+  }
+}
+body{
+    background: #eee;
+   }
+   
+   #side_nav{
+    background: #009879;
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.3s;
+   }
+   .content{
+      min-height: 100vh;
+      width: 100%;
+   }
+   hr.h-color{
+     background: #eee;
+        border: none;
+        height: 1px;
+        
+   }
+   
+   .sidebar li.active{
+      background: #eee;
+      border-radius: 8px;
+
+   }
+   
+   .sidebar li.active a, .sidebar li.active a:hover {
+    color: #000;
+
+
+   }
+   .sidebar li a{
+    color: #fff;
+   }
+   
+   .sidebar ul li:hover {
+    background-color: #007d66; 
+    border-color: #007d66; 
+    border-radius: 12px;
+
+  }
+
+   @media(max-width: 767px){
+    #side_nav{
+      margin-left: -250px;
+
+    }
+    #side_nav.active{
+      margin-left: 0;
+     }
+   }
+
+.h1logintext{
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: rgb(9, 7, 95);
+}
+
+.h2logintext{
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: #080441 0px 0px 5px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.loginContainer {
+  background: linear-gradient(to bottom right, #f6f5f5, #009879);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+}
+
+@media (min-width: 576px) {
+  .loginContainer {
+      width: 100%;
+      max-width: 800px;
+  }
+}
+
+table tr.editable {
+  background-color: #f0f8ff; /* Light blue background */
+  border: 1px solid #ddd; /* Gray border */
+}
+
+.edit_form  {
+  background: linear-gradient(to bottom right, #f6f5f5, #93caee);
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+}
+
+.scrollable {
+  max-height: 200px; /* Adjust the height as needed */
+  overflow-y: auto;
+}
+
+
+.content-table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.content-table thead tr {
+  background-color: #009879 !important; /* Override Bootstrap color */
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.content-table th,
+.content-table td {
+  padding: 12px 15px;
+}
+
+.content-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.content-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.content-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.content-table tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+
+.pagination-container {
+  margin-top: 20px;
+}
+
+
+.pagination-container .pagination .page-link {
+  color: #009879;
+}
+
+.pagination-container .pagination .page-item.active .page-link {
+  background-color: #009879;
+  border-color: #009879;
+  color: #ffffff;
+}
+
+.pagination-container .pagination .page-link:hover {
+  background-color: #007a63;
+  border-color: #007a63;
+  color: #ffffff;
+}
+
+.content-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #009879;
+  color: #ffffff;
+}
+
+
+.etable {
+  border-collapse: collapse;
+  margin: 25px auto; 
+  font-size: 0.9em;
+  width: 100%; 
+  border-radius: 5px; 
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.etable thead {
+  background-color: #009879;
+  color: #ffffff;
+}
+
+.etable th {
+  padding: 12px 15px;
+  font-weight: bold;
+}
+
+.etable thead tr {
+  background-color: #009879 !important;
+  color: #ffffff !important;
+  font-weight: bold;
+}
+
+.etable th,
+.etable td {
+  padding: 12px 15px;
+}
+
+.etable tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.etable tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.etable tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.etable tbody tr.active-row {
+  font-weight: bold;
+  color: #009879;
+}
+
+.etable thead th {
+  background-color: #009879;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.etable th,
+.etable td {
+  padding: 12px 15px;
+}
+
+
+
+.etable tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.pagination .page-item .page-link {
+  background-color: #009879; 
+  border-color: #009879; 
+  color: white; 
+}
+
+.pagination .page-item .page-link:hover {
+  background-color: #007d66; 
+  border-color: #007d66; 
+  color: white; 
+}
+
+
+.pagination {
+  display: flex;
+  justify-content: right;
+}
+
+.pagination li {
+  display: block;
+ }
+
+ /* Pagination Styles -----------------------------------------------------------------*/
+
+
+
+ .inventory-box {
+  background-color: #ffcb16;
+  color: rgb(0, 0, 0);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.8); /* Add box shadow */
+
+}
+.card-header {
+  background-color: #009879;
+  color: white;
+  border-bottom: none; /* Remove default border */
+  border-radius: 0.25rem 0.25rem 0 0; /* Add rounded corners to the top */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+}
+.card-header:hover {
+  background-color: #007A6A; /* Darken the background color on hover */
+  transition: background-color 0.3s ease; 
+}
+
+
+td:empty:after, th:empty:after {
+  content: "\00a0";
+}
+
+
+.fa-plus{
+  color: #009879;
+}
+
+#🫡🫡🫡{
+  color: #0b362e;
+}
