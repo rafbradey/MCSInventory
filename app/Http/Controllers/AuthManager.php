@@ -18,9 +18,11 @@ use App\Models\Report;
 class AuthManager extends Controller
 {
 
-    public function register(){
-        return view('auth.register');
-    }
+
+    
+    //public function register(){ //function for registration test
+  //      return view('auth.register');
+  //  }
 
     //Create function for login and registration
     function login(){

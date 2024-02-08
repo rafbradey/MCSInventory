@@ -12,12 +12,23 @@
       @if (auth()->user()->usertype === 'admin')
         <i class="fa-solid fa-sliders"></i><h2 class="mb-4">Admin Settings</h2>
         <div class="row d-flex flex-wrap justify-content-center align-items-stretch">
-          <a href="password" class="btn btn-primary btn-lg m-2">Change Phone Number</a>
-          <p class="text-muted w-100">Update your registered phone number for account security and verification.</p>
-          <a class="btn btn-primary btn-lg m-2">Reset Password</a>
+            {{--
+          <a  href="password" class="btn btn-primary btn-lg m-2">Change Phone Number</a>
+          <p class="text-muted w-100">Update your registered phone number for account security and verification.</p>--}}
+          
+          @if (auth()->user()->email_verified_at) 
+
+          <a href="password/reset" class="btn btn-primary btn-lg m-2">Reset Password</a>
           <p class="text-muted w-100">Secure your account by changing your password regularly.</p>
-          @if (auth()->user()->email_verified_at)
+
+          @else
+            <p>Your email address is not verified. Please verify your email address to reset your password.</p>
+          @endif 
+
+          
+          @if (auth()->user()->email_verified_at) 
           <p class="text-success">Your email address is verified!</p>
+          
         @else
           <a href = "email/verify" type="a" class="btn btn-primary btn-lg mt-4">Verify Email Address</a>
           <p class="text-muted">Click the a to verify your email address.</p>
@@ -27,13 +38,22 @@
       @else
         <i class="fa-solid fa-sliders"></i> <h2 class="mb-4">User Settings</h2>
         <div class="row d-flex flex-wrap justify-content-center align-items-stretch">
-          <a href="password" class="btn btn-primary btn-lg m-2">Change Phone Number</a>
-          <p class="text-muted w-100">Update your registered phone number.</p>
+            {{--
+          <a href="password" class="btn btn-primary btn-lg m-2">Change Phone Number</a> 
+          <p class="text-muted w-100">Update your registered phone number.</p>--}}
+          @if (auth()->user()->email_verified_at) 
+
           <a href="password/reset" class="btn btn-primary btn-lg m-2">Reset Password</a>
           <p class="text-muted w-100">Secure your account by changing your password regularly.</p>
-          <a class="btn btn-primary btn-lg m-2">Request Email Change</a>
-          <p class="text-muted w-100">Start the process of updating your registered email address. An admin will approve the request.</p>
-          @if (auth()->user()->email_verified_at)
+
+          @else
+            <p>Your email address is not verified. Please verify your email address to reset your password.</p>
+          @endif
+          {{--
+          <a a href= {{url('send-email')}} class="btn btn-primary btn-lg m-2">Request Email Change</a>
+        
+          <p class="text-muted w-100">Start the process of updating your registered email address. An admin will approve the request.</p> --}}
+          @if (auth()->user()->email_verified_at) 
           <p class="text-success">Your email address is verified!</p>
         @else
           <a href = "email/verify" type="a" class="btn btn-primary btn-lg mt-4">Verify Email Address</a>

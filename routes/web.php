@@ -19,14 +19,8 @@ use App\Http\Controllers\EmailController;
  * Add a new route named "send-email". Upon accessing this URL, the "sendEmail"
  * function inside the "EmailController" class will be triggered.
  */
-Route::get('send-email/{id}', [EmailController::class, 'sendEmail']);
-
-
-
-route::get('register', [AuthManager::class, 'register']);
-
-
-
+Route::get('send-email', [EmailController::class, 'sendEmail']);
+//route::get('register', [AuthManager::class, 'register']);
 Auth::routes([
 'verify' => true
 ]);
