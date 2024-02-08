@@ -316,6 +316,36 @@ td:empty:after, th:empty:after {
   color: #009879;
 }
 
-#🫡🫡🫡{
-  color: #0b362e;
+
+.btn-submit {
+  background-color: #009879;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
 }
+.btn-submit:hover {
+  background-color: #007564;
+}
+
+a.btndelete {
+  background-color: #FF0000 !important;
+  /* Add any other styles you want for the button */
+}
+  .container {
+      padding-top: 30px;
+  }
+
+  .damage-table {
+      margin-top: 50px;
+  }
+  .damage-table th {
+      background-color: #009879;
+      color: white;
+  }
+
+  .form-control {
+      border: 1px solid #009879;
+      width: 100%;
+  }
