@@ -442,14 +442,13 @@ public function cancelledRequest($id){
 
 public function deleteRequest($id)
 {
-    if (AAuth::user()->usertype == 'admin'){
+    if (Auth::user()->usertype == 'admin'){
         // Fetch the specific request to delete
         $request_history = request_history::find($id); // Find by ID
             $request_history->delete();
             // Redirect with a descriptive success message
-            return redirect('requests')->with('success', 'The request');
-    
-        
+            return redirect('requests')->with('success', 'The request with the ID: ' . $request_history->id . ' - ' . ' was DELETED successfully!');
+
     }
     // Handle unauthorized access
     return redirect()->route('dashboard')->with('error', 'You do not have permission to delete a request.');
@@ -581,23 +580,6 @@ public function reports() {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
 /////////////add item//////////
 
 function addItem(){
@@ -654,7 +636,24 @@ public function addItemPost(Request $request){
 }
 
 
+public function markasResolved($id){
+    if (Auth::user()) {
+        $report = Report::find($id);
+        $report->status = 'resolved';
+        $report->save();
+        return redirect('/reports')->with('success', 'The report with ID: '.$report->id.' - '.$report->item_name.' was MARKED AS RESOLVED!');
+    }
+    return redirect()->route('dashboard')->with('error', 'You do not have permission to mark a report as resolved');
+}
 
+public function deleteReport($id)
+{
+    if (Auth::user()) {
+        $report = Report::find($id);
+        $report->delete();
+        return redirect('/reports')->with('success', 'The report with ID: '.$report->id.' - '.$report->item_name.' was DELETED successfully!');
+    }
+    return redirect()->route('dashboard')->with('error', 'You do not have permission to delete a report');
 
 
 
@@ -662,13 +661,9 @@ public function addItemPost(Request $request){
 
 
 
-  
 
 
-
-
-
-
+}
 
 
 
