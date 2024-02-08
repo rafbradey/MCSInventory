@@ -30,7 +30,7 @@
         <div class="col-md-10 offset-md-1"> 
             <h3 class="text-center mt-2">Existing Damage Reports</h3>
             <div class="table-responsive"> 
-                <table class="table table-striped etable">
+                <table class="table table-striped etable text-center">
                     <thead>
                         <tr>
                             <th>Report ID</th>
@@ -61,7 +61,8 @@
                             @if(auth()->user()->usertype == "admin")
                             <td>
                                 <a href="{{url('markasResolved/'.$report->id)}}" class="btn-submit"><i class="fa-solid fa-check"></i></a>
-                                <a href="{{url('deleteReport/'.$report->id)}}" class="btn-submit><i class="fa-solid fa-x"></i></a>
+                                <a href="{{url('deleteReport/'.$report->id)}}" class="btn-submit btndelete"><i class="fa-solid fa-trash"></i></a>
+
                             </td>
                             @endif
                         @endif
@@ -159,50 +160,9 @@
 
 
 
-<style>
-
-    .container {
-        padding-top: 30px;
-    }
-    .btn-submit {
-        background-color: #009879;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-    .btn-submit:hover {
-        background-color: #007564;
-    }
-    .damage-table {
-        margin-top: 50px;
-    }
-    .damage-table th {
-        background-color: #009879;
-        color: white;
-    }
-  
-    .form-control {
-        border: 1px solid #009879;
-        width: 100%;
-    }
-
-    .etable {
-        width: 100%;
-    }
-
-    .text-center {
-    text-align: center;
-}
-
-
-.text-center {
-    text-align: center;
-}
 
 
 
-</style>
+
 
 @endsection

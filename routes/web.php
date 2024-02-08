@@ -36,11 +36,14 @@ Route::middleware(['auth'])->group(function () {
         $PendingRequests = UserRequests::where('status', 'pending')->count();
         $reports = Report::all();
         $CompletedRequests = UserRequests::where('status', 'completed')->count();
+        $UnresolvedReports = Report::where('status', 'unresolved')->count();
         
        //dd($numberofUsers);
 
 
-        return view('dashboard', compact('userRequests', 'users', 'inventory', 'PendingRequests', 'totalQuantity', 'totalGCQ', 'reports', 'CompletedRequests','numberofUsers'));
+        return view('dashboard', compact('userRequests', 'users', 'inventory', 
+        'PendingRequests', 'totalQuantity', 'totalGCQ', 'reports', 'CompletedRequests',
+        'numberofUsers', 'UnresolvedReports'));
     })->name('dashboard');
 
     Route::middleware(['userType:admin'])->group(function () {

@@ -563,7 +563,7 @@ public function submitReport(Request $request)
     
     $report->save();
 
-    return redirect()->route('reports')->with('success', 'The report submitted');
+    return redirect()->route('reports')->with('success', 'The report submitted with ID: '.$report->id.' - '.$report->item_name.' was SUBMITTED successfully!');
 }
 return redirect()->route('login'); // Redirect unauthenticated users to the login page
 

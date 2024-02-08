@@ -63,8 +63,8 @@
              <div class="col-md-4">
                             <div class="card inventory-box mb-4">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{$PendingRequests}}</h5>
-                                    <p class="card-text">Pending User Requests</p>                    
+                                    <h5 class="card-title">{{$UnresolvedReports}}</h5>
+                                    <p class="card-text">Unresolved Reports</p>                    
                                 </div>
                             </div>
                         </div>
@@ -83,31 +83,12 @@
             </div>
         </div>
         <div class="col-md-12">
-        <h3 class="mt-4 mb-1">Recent Requests</h3>
+        <h3 class="mt-4 mt-1">Recent Requests</h3>
     </div>
         <div class="container d-flex justify-content-center align-items-center"">
             <div class = "col-md-12">
-                <!-- First table -->
-                
-                <div class="table-container">
+          <div class="table-container">
                     <table class="etable text-center">
-                    
-                        @if($errors->any())
-    <div class="alert alert-danger">
-        @foreach($errors->all() as $error)
-        <div>{{$error}}</div>
-        @endforeach
-    </div>
-    @endif
-    
-    @if(session()->has('error'))
-    <div class="alert alert-danger">{{session()->get('error')}}</div>
-    @endif
-    
-    @if(session()->has('success'))
-    <div class="alert alert-success">{{session()->get('success')}}</div>
-    @endif
-    
     <thead>
         <tr>
             <th scope="col">Request ID</th>
