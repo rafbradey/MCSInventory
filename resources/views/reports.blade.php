@@ -61,7 +61,7 @@
                             @if(auth()->user()->usertype == "admin")
                             <td>
                                 <a href="{{url('markasResolved/'.$report->id)}}" class="btn-submit"><i class="fa-solid fa-check"></i></a>
-                                <a href="{{url('deleteReport/'.$report->id)}}" class="btn-submit btndelete"><i class="fa-solid fa-trash"></i></a>
+                                <a href="{{url('deleteReport/'.$report->id)}}" class="btn-submit btndelete" onclick="return confirm('Are you sure you want to delete this report?')"><i class="fa-solid fa-trash"></i></a>
 
                             </td>
                             @endif
@@ -137,7 +137,9 @@
                                  @endif
                             @if(auth()->user()->usertype == "admin")
                             <td>
-                                <a href="{{url('deleteReport/'.$report->id)}}" class="btn-submit btndelete" onclick="return confirm('Are you sure you want to delete this report?');"><i class="fa-solid fa-trash"></i></a>
+                                <a href="{{ url('deleteReport/'.$report->id) }}" class="btn-submit btndelete" onclick="return confirm('Are you sure you want to delete this report record?')">
+                                    <i class="fa-solid fa-trash"></i>
+                                </a>
                                 @endif
                             @endif
  

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('include.dash_side')
 
 @section('content')
 <div class="container">

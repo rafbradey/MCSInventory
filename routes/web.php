@@ -8,6 +8,28 @@ use App\Models\User;
 use App\Models\UserRequests;
 use App\Models\Inventory;
 use App\Models\Report;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Http\Controllers\EmailController;
+
+
+
+
+
+/**
+ * Add a new route named "send-email". Upon accessing this URL, the "sendEmail"
+ * function inside the "EmailController" class will be triggered.
+ */
+Route::get('send-email/{id}', [EmailController::class, 'sendEmail']);
+
+
+
+route::get('register', [AuthManager::class, 'register']);
+
+
+
+Auth::routes([
+'verify' => true
+]);
 
 
 //use App\Http\Controllers\AuthManager;  // This is the namespace of the controller.

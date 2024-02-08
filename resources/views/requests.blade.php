@@ -68,9 +68,12 @@
                                     </td>
                                 </tr>
                             @endif
+                           
                         @endforeach
                     </tbody>
                 </table>
+            
+
             </div>
 
             <!-- Second table -->
@@ -106,7 +109,7 @@
                                         
                                         <td>
                                             @if(auth()->user()->usertype !== 'admin')
-                                            <!--for users-->
+                    
                                                     <a href="{{ url('declineRequest/'.$request->id) }}" 
                                                         class="btn btn-danger" onclick="return confirm('Are you sure you want to Decline the request of {{ $request->user->name }}')">Cancel Request</a>
                                                 
@@ -130,6 +133,7 @@
                             </form>
                         </tbody>
                     </table>
+     
                 </div>
             @endif
          
@@ -176,6 +180,7 @@
                         @endforeach
                     </tbody>
                 </table>
+   
             </div>
             
       

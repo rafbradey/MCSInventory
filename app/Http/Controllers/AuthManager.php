@@ -18,6 +18,10 @@ use App\Models\Report;
 class AuthManager extends Controller
 {
 
+    public function register(){
+        return view('auth.register');
+    }
+
     //Create function for login and registration
     function login(){
         if (Auth::check()) {
@@ -39,10 +43,11 @@ class AuthManager extends Controller
 
 
 
+
 function manageEmployees() {
     if (Auth::check()) {
         if (Auth::user()->usertype == 'admin') {
-            $users = User::whereIn('usertype', ['user', 'admin'])->paginate(10);; //gets both the usertype's data (admin and user)
+            $users = User::whereIn('usertype', ['user', 'admin'])->paginate(10); //gets both the usertype's data (admin and user)
             return view('manageEmployees', compact('users'));
         } else {
             return redirect()->route('dashboard');
@@ -316,6 +321,7 @@ public function requestDetails($id)
 public function requestPage()
 {
     if (Auth::check()) {
+        //paginate the data by 3
         $UserRequests = UserRequests::all();
         $AcceptedRequests = UserRequests::where('status', 'accepted')->get();
         $request_history = request_history::all();
