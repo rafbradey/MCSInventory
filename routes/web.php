@@ -72,21 +72,7 @@ Route::put('update-data/{id}', [AuthManager::class, 'update'])->name('update');
 
 //////////////////////////////////////////////// error beyonod this point
 
-/*
-Route::controller(AuthManager::class)->group(function(){
-    Route::get('users', 'index');
-    Route::get('users-export', 'export')->name('users.export');
-    Route::post('users-import', 'import')->name('users.import');
-});
-*/
-
 Route::post('/inventory-import', [InventoryController::class, 'import'])->name('inventory.import');
-
-
-//Route::controller(AuthManager::class)->group(function(){
-  //  Route::get('Inventory', 'index');
-  //  Route::post('/inventory-import', [AuthManager::class, 'import'])->name('inventory.import');
-//});
 
 Route::get('editInventory/{id}', [AuthManager::class, 'editInventory'])->name('editInventory');
 Route::put('updateInventory/{id}', [AuthManager::class, 'updateInventory'])->name('updateInventory');
@@ -120,16 +106,15 @@ Route::post('addRequest', [AuthManager::class, 'addRequest'])->name('addRequest'
 Route::get('declineRequest/{id}', [AuthManager::class, 'declineRequest']);
 Route::get('cancelledRequest/{id}', [AuthManager::class, 'cancelledRequest']);
 Route::get('acceptRequest/{id}', [AuthManager::class, 'acceptRequest']);
-
 Route::put('markedAsComplete/{id}', [AuthManager::class, 'markedAsComplete']);
 
 
 Route::get('viewRequest/{id}', [AuthManager::class, 'viewRequest']);
-
-
 Route::get("deleteRequest/{id}", [AuthManager::class, 'deleteRequest']);
 
 
 Route::get('/reports', [AuthManager::class, 'reports'])->name('reports');
+Route::get('/markasResolved/{id}', [AuthManager::class, 'markasResolved'])->name('markasResolved');
+Route::get('/deleteReport/{id}', [AuthManager::class, 'deleteReport'])->name('deleteReport');
 
 Route::put('submitReport', [AuthManager::class, 'submitReport'])->name('submitReport');
