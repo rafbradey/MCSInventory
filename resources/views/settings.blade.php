@@ -16,7 +16,14 @@
           <p class="text-muted w-100">Update your registered phone number for account security and verification.</p>
           <a class="btn btn-primary btn-lg m-2">Reset Password</a>
           <p class="text-muted w-100">Secure your account by changing your password regularly.</p>
+          @if (auth()->user()->email_verified_at)
+          <p class="text-success">Your email address is verified!</p>
+        @else
+          <a href = "email/verify" type="a" class="btn btn-primary btn-lg mt-4">Verify Email Address</a>
+          <p class="text-muted">Click the a to verify your email address.</p>
+        @endif
         </div>
+        
       @else
         <i class="fa-solid fa-sliders"></i> <h2 class="mb-4">User Settings</h2>
         <div class="row d-flex flex-wrap justify-content-center align-items-stretch">
