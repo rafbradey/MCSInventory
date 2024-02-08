@@ -56,11 +56,11 @@
                 <td>{{ $user->usertype }}</td>
 
                 <td>
-                    @if($user->usertype !== 'admin')
-                    <a href="{{url('edit/'.$user->id)}}" class="btn btn-primary">Edit</a>
-                    <a href="{{url('delete/'.$user->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to remove user {{$user->name}} with ID {{$user->id}}?')">Remove</a>
-                    @elseif($user->usertype === 'admin')
-                    <a href="{{url('edit/'.$user->id)}}" class="btn btn-primary">Edit</a>
+                    @if(auth()->user()->id === $user->id)
+                        <a href="{{ url('edit/'.$user->id) }}" class="btn btn-primary">Edit</a>
+                    @elseif(auth()->user()->usertype === 'admin' && $user->usertype !== 'admin')
+                        <a href="{{ url('edit/'.$user->id) }}" class="btn btn-primary">Edit</a>
+                        <a href="{{ url('delete/'.$user->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to remove user {{$user->name}} with ID {{$user->id}}?')">Remove</a>
                     @endif
                 </td>
             </tr>

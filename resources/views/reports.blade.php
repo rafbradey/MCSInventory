@@ -7,8 +7,24 @@
     </h5>
 @endsection
 @section('title', 'Damage Reports')
-
 @section('content')
+
+@if($errors->any())
+<div class="alert alert-danger">
+    @foreach($errors->all() as $error)
+    <div>{{$error}}</div>
+    @endforeach
+</div>
+@endif
+
+@if(session()->has('error'))
+<div class="alert alert-danger">{{session()->get('error')}}</div>
+@endif
+
+@if(session()->has('success'))
+<div class="alert alert-success">{{session()->get('success')}}</div>
+@endif
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-10 offset-md-1"> 
@@ -22,30 +38,34 @@
                             <th>Description</th>
                             <th>Location</th>
                             <th>Date Reported</th>
+                            <th>Status</th>
                             @if(auth()->user()->usertype == "admin")
                             <th>Actions</th>
-                            @endif
+                            @endif                     
                         </tr>
                     </thead>   
                     
                     <tbody>
                         @foreach($reports as $report)
-                        <tr>
+                          @if($report->status == 'unresolved')
+
                             <td>{{ $report->id }}</td>
                             <td>{{ $report->item_name }}</td>
                             <td>{{ $report->description }}</td>
                             <td>{{ $report->location }}</td>
                             <td>{{ $report->date_reported }}</td>
+                            <td>
+                                @if($report->status =='unresolved')
+                                {{$report->status}}
+                                @endif
                             @if(auth()->user()->usertype == "admin")
                             <td>
-                                <a href="#" class="btn-submit"><i class="fa-solid fa-check"></i></a>
-                                <a href="#" class="btn-submit"><i class="fa-solid fa-x"></i></a>
+                                <a href="{{url('markasResolved/'.$report->id)}}" class="btn-submit"><i class="fa-solid fa-check"></i></a>
+                                <a href="{{url('deleteReport/'.$report->id)}}" class="btn-submit><i class="fa-solid fa-x"></i></a>
                             </td>
-
-                        
-                       
-                
                             @endif
+                        @endif
+
                         </tr>
                         @endforeach
                     </tbody>
@@ -55,6 +75,7 @@
     </div>
     <div class="row">
         <div class="col-md-8 offset-md-2">
+           
             <h3 class="text-center mt-5">Report Damaged Item</h3>
         
             <form action="{{url('submitReport')}}"  method="post">
@@ -79,9 +100,67 @@
             </form>
         </div>
     </div>
+
+        <div class="row">
+            <div class="col-md-10 offset-md-1"> <br><br>
+                <h3 class="text-center mt-2">Damage Report Record</h3>
+                <div class="table-responsive"> 
+                    <table class="table table-striped etable text-center">
+                        <thead>
+                            <tr>
+                                <th>Report ID</th>
+                                <th>Item Name</th>
+                                <th>Description</th>
+                                <th>Location</th>
+                                <th>Date Reported</th>
+                                <th>Status</th>
+                            @if (auth()->user()->usertype == "admin")
+                                <th>Actions</th>
+                            </tr>
+                            @endif
+                        </thead>   
+                        
+                        <tbody>
+                         @foreach($reports as $report)
+                            @if($report->status == 'resolved')
+                            <tr>
+                                <td>{{ $report->id }}</td>
+                                <td>{{ $report->item_name }}</td>
+                                <td>{{ $report->description }}</td>
+                                <td>{{ $report->location }}</td>
+                                <td>{{ $report->date_reported }}</td>
+                                <td>
+                                    @if($report->status =='resolved')
+                                    {{$report->status}}
+                                </td>
+                                 @endif
+                            @if(auth()->user()->usertype == "admin")
+                            <td>
+                                <a href="{{url('deleteReport/'.$report->id)}}" class="btn-submit btndelete"><i class="fa-solid fa-trash"></i></a>
+                            @endif
+                            @endif
+ 
+                            </tr>
+                         @endforeach
+                        </tbody>
+                    </table>
+          
+
+
 </div>
 
+
+
+
+
+
+
+
+
+
+
 <style>
+
     .container {
         padding-top: 30px;
     }
@@ -92,7 +171,6 @@
         padding: 10px 20px;
         border-radius: 5px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
     }
     .btn-submit:hover {
         background-color: #007564;
