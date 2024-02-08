@@ -34,18 +34,24 @@
           </div>
           
           <div class="col-auto mx-2">
+            <label for="filter" class="col-form-label">Filter by Category:</label>
+          </div>
+            <div class="col-auto mx-2">
               <select name="filter" class="form-select">
-                  <option value="">All</option>
-                  <option value="id">ID</option>
-                  <option value="school_property">School Property</option>
-                  <option value="remarks">Remarks</option>
-                  <option value="category">Category</option>
-                  <option value="acquisition_type">Acquisition Type</option>
-                  <option value="grade_level">Grade Level</option>
+                <option value="">--Select Category--</option>
+                <option value="instructional">Instructional Materials</option>
+                <option value="learning">Learning Materials</option>
+                <option value="science">Science Equipment</option>
+                <option value="reading">Reading Materials</option>
+                <option value="dental">Dental/Medical Supplies</option>
+                <option value="it-equipment">IT-EQUIPMENT</option>
+                <option value="others">Others</option>
               </select>
           </div>
+    
           <div class="col-auto">
               <button type="submit" class="btn btn-primary">Search</button>
+              <button type="button" class="btn btn-secondary" onclick="window.location.href='{{ route('inventory') }}'">Clear</button>
           </div>
       </form>
     </div>

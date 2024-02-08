@@ -294,6 +294,16 @@ public function search_inventory(Request $request)
         });
     }
 
+    // Filter by category if it's selected
+    if ($request->has('filter')) {
+        $filter = $request->input('filter');
+        if ($filter !== '') {
+            // Convert the filter value to match the database format
+            $filter = str_replace('_', '+', $filter);
+            $Inventory->where('category', 'LIKE', '%' . $filter . '%');
+        }
+    }
+
     $Inventory = $Inventory->paginate(10);
 
     return view('inventory', compact('Inventory'));
