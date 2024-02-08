@@ -137,8 +137,8 @@
                                  @endif
                             @if(auth()->user()->usertype == "admin")
                             <td>
-                                <a href="{{url('deleteReport/'.$report->id)}}" class="btn-submit btndelete"><i class="fa-solid fa-trash"></i></a>
-                            @endif
+                                <a href="{{url('deleteReport/'.$report->id)}}" class="btn-submit btndelete" onclick="return confirm('Are you sure you want to delete this report?');"><i class="fa-solid fa-trash"></i></a>
+                                @endif
                             @endif
  
                             </tr>

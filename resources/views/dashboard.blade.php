@@ -41,15 +41,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div class="col-md-4">
-                            <div class="card inventory-box mb-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{$PendingRequests}}</h5>
-                                    <p class="card-text">Pending User Requests</p>                    
-                                </div>
-                            </div>
-                        </div>
                         <div class="col-md-4">
                             <div class="card inventory-box mb-4">
                                 <div class="card-body">
@@ -58,17 +49,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-             <div class="col-md-4">
-                            <div class="card inventory-box mb-4">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{$UnresolvedReports}}</h5>
-                                    <p class="card-text">Unresolved Reports</p>                    
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="col-md-4">
                             <div class="card inventory-box mb-4">
                                 <div class="card-body">
@@ -77,7 +57,22 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="col-md-4">
+                            <div class="card inventory-box mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$AcceptedRequests}}</h5>
+                                    <p class="card-text">Accepted Requests</p>                    
+                                </div>
+                            </div>
+                        </div>
+                          <div class="col-md-4">
+                            <div class="card inventory-box mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{$UnresolvedReports}}</h5>
+                                    <p class="card-text">Unresolved Reports</p>                    
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

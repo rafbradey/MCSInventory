@@ -165,9 +165,9 @@
                                                     View Request</a>
                                          
                                         @elseif(auth()->user()->usertype === 'admin')
-                                        <a href="{{ url('viewRequest/'.$request->id) }}" class="btn btn-secondary d-in-line">View Request</a>
+                                        <a href="{{ url('viewRequest/'.$request->id) }}" class="btn btn-secondary d-in-line">View Request </a>
                                             <a href="{{ url('deleteRequest/'.$request->id) }}" 
-                                                class="btn btn-danger" onclick="return confirm('Are you sure you want to delete history of {{ $request->school_property }} request')">Delete</a>
+                                                class="btn btn-danger" onclick="return confirm('Are you sure you want to delete history of {{ $request->school_property }} request')"><i class="fa-solid fa-trash"></i></a>
 
                                         @endif
                                     </td>

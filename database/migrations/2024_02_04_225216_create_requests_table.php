@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('UserRequests', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
-            $table->foreignId('inventory_id')->nullable()->constrained('inventory')->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade'); //references id from users table
+            $table->foreignId('inventory_id')->nullable()->constrained('inventory')->onDelete('cascade'); //references id from inventory table
             $table->string('status')->default('pending');
             $table->timestamps(); // Group timestamps together
-    
             $table->string('school_property')->required();
             $table->string('property_number')->nullable();
             $table->string('unit_of_measure')->nullable();
