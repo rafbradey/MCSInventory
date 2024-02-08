@@ -136,7 +136,7 @@
             <div class="table-container">
                 <table class="etable text-center">
                     <thead>
-                        <h2>Completed/Declined Request History</h2>
+                        <h2>Completed Request History</h2>
                     </thead>
                     <thead>
                         <tr>

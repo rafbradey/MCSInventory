@@ -26,6 +26,7 @@
             <button class="btn d-md-none d-block close-btn px-1 py-0 text-white"><i class="fa-solid fa-bars"></i></button>
         </div>
 
+        
           <ul class="list-unstyled px-2">
             <li class="{{ request()->routeIs('dashboard') ? 'active' : '' }}"><a href="{{ route('dashboard') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid ms-2 me-1 fa-table-columns"></i> Dashboard</a></li>
             <li class="{{ request()->routeIs('reports') ? 'active' : '' }}"><a href="{{ route('reports') }}" class="text-decoration-none px-3 py-2 d-block"><i class="fa-solid ms-2 me-2 fa-flag"></i>Reports</a></li>
