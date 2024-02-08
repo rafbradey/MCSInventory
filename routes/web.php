@@ -7,7 +7,9 @@ use App\Http\Controllers\SearchController;
 use App\Models\User;
 use App\Models\UserRequests;
 use App\Models\Inventory;
-Use App\Models\Report;
+use App\Models\Report;
+
+
 //use App\Http\Controllers\AuthManager;  // This is the namespace of the controller.
 
 /*
@@ -21,21 +23,24 @@ Use App\Models\Report;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
+ 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
-     
+      
         $userRequests = UserRequests::all();
         $users = User::all();
+        $numberofUsers = User::count();
         $inventory = Inventory::all();
-
         $totalQuantity = Inventory::sum('quantity');
-        $totalGCQ = Inventory::where('remarks', 'In Good Condition')->sum('quantity');
+       $totalGCQ = Inventory::where('remarks', 'In Good Condition')->sum('quantity');
         $PendingRequests = UserRequests::where('status', 'pending')->count();
         $reports = Report::all();
+        $CompletedRequests = UserRequests::where('status', 'completed')->count();
+        
+       //dd($numberofUsers);
 
 
-        return view('dashboard', compact('userRequests', 'users', 'inventory', 'PendingRequests', 'totalQuantity', 'totalGCQ', 'reports'));
+        return view('dashboard', compact('userRequests', 'users', 'inventory', 'PendingRequests', 'totalQuantity', 'totalGCQ', 'reports', 'CompletedRequests','numberofUsers'));
     })->name('dashboard');
 
     Route::middleware(['userType:admin'])->group(function () {

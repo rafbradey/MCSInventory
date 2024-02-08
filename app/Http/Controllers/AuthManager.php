@@ -167,14 +167,6 @@ public function importUsers(){
 }
 
 
-/*
-public function import() 
-{
-    Excel::import(new Inventory, 'inventory.xlsx');
-    return redirect('inventory')->with('success', 'All good!');
-}
-*/
-
 public function inventory()
 {
     if (Auth::check()) {
@@ -538,6 +530,8 @@ public function dashboard(){
         $Inventory = Inventory::all();
         $AcceptedRequests = UserRequests::where('status', 'pending')->get();
         $Reports = Report::all();
+    
+        
 
         return view('dashboard')->with('Reports', $Reports);
     }
@@ -669,6 +663,22 @@ public function addItemPost(Request $request){
 
 
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

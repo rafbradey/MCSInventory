@@ -14,8 +14,12 @@
             <div class="card mt-1">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3>Inventory Summary</h3>
+                    @if(auth()->user()->usertype === 'admin')
                     <a href = "{{url('/addItem')}}"class="btn btn-warning mr-2"> <i class="fa-solid fa-plus"></i></a>
+                    @elseif (auth()->user()->usertype != 'admin')
+                    @endif
                 </div>
+
                 <div class="card-body">
                     <div class="row">
 
@@ -46,15 +50,15 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-md-4">
                             <div class="card inventory-box mb-4">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{$PendingRequests}}</h5>
-                                    <p class="card-text">Pending User Requests</p>                    
+                                    <h5 class="card-title">{{$numberofUsers}}</h5>
+                                    <p class="card-text">Number of Site Users</p>                    
                                 </div>
                             </div>
                         </div>
+
 
              <div class="col-md-4">
                             <div class="card inventory-box mb-4">
