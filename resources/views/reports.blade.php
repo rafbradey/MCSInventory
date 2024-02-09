@@ -60,9 +60,9 @@
                                 @endif
                             @if(auth()->user()->usertype == "admin")
                             <td>
-                                <a href="{{ url('markasResolved/'.$report->id) }}" class="btn btn-submit"><i class="fa-solid fa-check"></i></a>
-                                <a href="{{ url('deleteReport/'.$report->id) }}" class="btn btn-submit btndelete" onclick="return confirm('Are you sure you want to delete this report?')"><i class="fa-solid fa-trash"></i></a>
-                            </div>
+                                <a href="{{url('markasResolved/'.$report->id)}}" class="btn-submit" onclick="return confirm('Mark this report as RESOLVED?')"><i class="fa-solid fa-check"></i></a>
+                                <a href="{{url('deleteReport/'.$report->id)}}" class="btn-submit btndelete" onclick="return confirm('Are you sure you want to delete this re')"><i class="fa-solid fa-trash"></i></a>
+
                             </td>
                             @endif
                         @endif
@@ -151,6 +151,16 @@
 
 
 </div>
+
+
+
+
+
+
+
+
+
+
 
 
 

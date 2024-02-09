@@ -55,14 +55,43 @@
                 <td>{{ $user->phone}}</td>
                 <td>{{ $user->usertype }}</td>
 
-                <td>
-                    @if(auth()->user()->id === $user->id)
-                        <a href="{{ url('edit/'.$user->id) }}" class="btn btn-primary">Edit</a>
-                    @elseif(auth()->user()->usertype === 'admin' && $user->usertype !== 'admin')
-                        <a href="{{ url('edit/'.$user->id) }}" class="btn btn-primary">Edit</a>
-                        <a href="{{ url('delete/'.$user->id) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to remove user {{$user->name}} with ID {{$user->id}}?')">Remove</a>
-                    @endif
+                <td class="text-center">
+                    <div class="d-flex justify-content-center">
+                        @if(auth()->user()->usertype === 'admin')
+                            @if($user->usertype !== 'admin')
+                                <form id="promoteForm{{$user->id}}" action="{{ url('promote/'.$user->id) }}" method="POST" class="mx-1">
+                                    @csrf
+                                    <button type="button" onclick="confirmPromotion({{$user->id}})" class="btn btn-warning"><i class="fa-solid fa-user-shield"></i>Promote</button>
+                                </form>
+                                <script>
+                                    function confirmPromotion(userId) {
+                                        var confirmation = prompt("Please type 'confirm' to promote this user to admin:");
+                                        if (confirmation !== null && confirmation.toLowerCase() === 'confirm') {
+                                            // If the user confirms, submit the form
+                                            document.getElementById('promoteForm' + userId).submit();
+                                        } else {
+                                            // If the user cancels or inputs something else, do nothing
+                                            alert("Promotion canceled.");
+                                        }
+                                    }
+                                </script>
+                            @endif
+                        @endif
+                        
+                        @if(auth()->user()->id === $user->id)
+                            <a href="{{ url('edit/'.$user->id) }}" class="btn btn-primary mx-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                        @endif
+                        
+                        @if(auth()->user()->usertype === 'admin' && $user->usertype !== 'admin')
+                            <a href="{{ url('edit/'.$user->id) }}" class="btn btn-primary mx-1"><i class="fa-solid fa-pen-to-square"></i></a>
+                            <a href="{{ url('delete/'.$user->id) }}" class="btn btn-danger mx-1" onclick="return confirm('Are you sure you want to remove user {{$user->name}} with ID {{$user->id}}?')"><i class="fa-solid fa-trash"></i></a>
+                        @endif
+                    </div>
                 </td>
+                
+                
+                
+                
             </tr>
             @endforeach
 

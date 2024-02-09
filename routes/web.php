@@ -139,3 +139,6 @@ Route::get('/markasResolved/{id}', [AuthManager::class, 'markasResolved'])->name
 Route::get('/deleteReport/{id}', [AuthManager::class, 'deleteReport'])->name('deleteReport');
 
 Route::put('submitReport', [AuthManager::class, 'submitReport'])->name('submitReport');
+
+route::post('promote/{id}', [AuthManager::class, 'promote']);
+

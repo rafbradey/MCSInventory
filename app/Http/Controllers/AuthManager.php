@@ -676,6 +676,26 @@ public function deleteReport($id)
 
 
 }
+public function promote(Request $request, $id)
+{
+    // Check if the logged-in user is an admin
+    if (Auth::user()->usertype == 'admin') {
+        // Find the user by ID
+        $user = User::find($id);
+
+        // Update the user's type to 'admin'
+        $user->usertype = 'admin';
+
+        // Save the changes
+        $user->save();
+
+        return redirect('/manageEmployees')->with('success', 'The user with ID: ' . $user->id . ' - ' . $user->name . ' has been promoted to ADMIN successfully');
+    } else {
+        // Redirect to login page if the logged-in user is not an admin
+        return redirect('/login')->with('error', 'You do not have permission to promote users.');
+    }
+}
+
 
 
 

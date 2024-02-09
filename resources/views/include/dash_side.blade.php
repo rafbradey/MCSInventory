@@ -35,7 +35,7 @@
                 <span><i class="fa-solid ms-2 me-1 fa-warehouse"></i>Inventory</span> </a>
         </li>
 
-              @if(auth()->check() && auth()->user()->usertype === 'admin')
+              @if(auth()->check() && auth()->user()->usertype === 'admin' )
               <li class="{{ request()->routeIs('manageEmployees') ? 'active' : '' }}">
                   <a href="{{ route('manageEmployees') }}" class="text-decoration-none px-3 py-2 d-block"> 
                       <i class="fa-solid ms-2 fa-user-group"></i> Manage Employees
