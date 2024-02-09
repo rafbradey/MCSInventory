@@ -77,15 +77,17 @@ body{
      }
    }
 
-.h1logintext{
-    font-size: 30px;
-    font-weight: bold;
-    color: #000;
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: rgb(9, 7, 95);
-}
+   .h1logintext {
+     font-size: 32px;
+     font-weight: bold;
+     color: #649989; 
+     text-align: center;
+     margin: 30px auto; 
+     margin-bottom: 0;
+
+    }
+   
+
 
 .h2logintext{
     font-size: 20px;
@@ -95,13 +97,17 @@ body{
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    margin-top: 0;
+
 }
 
 .loginContainer {
   background: linear-gradient(to bottom right, #f6f5f5, #009879);
-  border-radius: 10px;
+  border-radius: 5px !important;
   box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
 }
+
+
 
 @media (min-width: 576px) {
   .loginContainer {
@@ -111,8 +117,8 @@ body{
 }
 
 table tr.editable {
-  background-color: #f0f8ff; /* Light blue background */
-  border: 1px solid #ddd; /* Gray border */
+  background-color: #f0f8ff; 
+  border: 1px solid #ddd; 
 }
 
 .edit_form  {
@@ -331,7 +337,6 @@ td:empty:after, th:empty:after {
 
 a.btndelete {
   background-color: #FF0000 !important;
-  /* Add any other styles you want for the button */
 }
   .container {
       padding-top: 30px;
